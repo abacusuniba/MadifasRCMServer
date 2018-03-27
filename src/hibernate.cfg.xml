@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.url">jdbc:mysql://localhost:3306/databasercm</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password"></property>
+
+<property name="hibernate.connection.autocommit">true</property>
+    <!-- <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> -->
+    <!-- <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property> -->
+        <!-- <property name="show_sql">true</property> -->
+        <!-- <property name="format_sql">true</property> -->
+        <!-- <property name="use_sql_comments">true</property> -->
+
+    <!-- per effettuare il caricamento Lazy -->
+    <property name="current_session_context_class">thread</property>
+
+	<!-- Utenti autorizzati all'accesso -->
+    <mapping class="c_dto.b_real.Utente" />
+    <mapping class="c_dto.b_real.Manager" />
+    <mapping class="c_dto.b_real.Employee" />
+    <mapping class="c_dto.b_real.Administrator" />
+
+
+	<!-- Aziende e loro dati -->
+    <mapping class="c_dto.b_real.Cliente" />
+    <mapping class="c_dto.b_real.Stato" />
+    <mapping class="c_dto.b_real.Archiviato" />
+    <mapping class="c_dto.b_real.Attivo" />
+
+    <mapping class="c_dto.b_real.Fornitore" />
+    <mapping class="c_dto.b_real.SubAgente" />
+    <mapping class="c_dto.b_real.Segnalatore" />
+    <mapping class="c_dto.b_real.Altro" />
+    <mapping class="c_dto.b_real.Settore" />
+    <mapping class="c_dto.b_real.GruppoSocietario" />
+    <mapping class="c_dto.b_real.Consorzio" />
+    <mapping class="c_dto.b_real.Pagamento" />
+    <mapping class="c_dto.b_real.Trasporto" />
+    <mapping class="c_dto.b_real.CondizioneCommerciale" />
+    <mapping class="c_dto.b_real.SchedaNetto" />
+    <mapping class="c_dto.b_real.Destinazione" />
+
+
+    <mapping class="c_dto.b_real.Minimo" />
+    <mapping class="c_dto.b_real.CAP" />
+    <mapping class="c_dto.b_real.Citta" />
+    <mapping class="c_dto.b_real.Provincia" />
+    <mapping class="c_dto.b_real.Regione" />
+    <mapping class="c_dto.b_real.Nazione" />
+
+    <mapping class="c_dto.b_real.Prodotto" />
+    <mapping class="c_dto.b_real.GruppoProdotto" />
+    <mapping class="c_dto.b_real.SottogruppoProdotto" />
+    <mapping class="c_dto.b_real.PercentualeFornitore" />
+
+    <mapping class="c_dto.b_real.UM" />
+    <mapping class="c_dto.b_real.Validita" />
+
+    <mapping class="c_dto.b_real.Magazzino" />
+    <mapping class="c_dto.b_real.CausaleTrasporto" />
+
+    <mapping class="c_dto.b_real.Documento" />
+    <mapping class="c_dto.b_real.TipoDocumento" />
+    <mapping class="c_dto.b_real.Categoria" />
+    <mapping class="c_dto.b_real.TipoAzienda" />
+    <mapping class="c_dto.b_real.Movimentazione" />
+    <mapping class="c_dto.b_real.Iva" />
+
+    <mapping class="c_dto.b_real.PercentualeCollaboratore" />
+
+    <mapping class="c_dto.b_real.FormaGiuridica" />
+    <mapping class="c_dto.b_real.Sito" />
+    <mapping class="c_dto.b_real.RigaProdotto" />
+    <mapping class="c_dto.b_real.RigaTesto" />
+    <!--<mapping class="c_dto.b_real.Sito" />-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <mapping class="c_dto.b_real.CentralinoAzienda" />
+    <mapping class="c_dto.b_real.FaxAzienda" />
+    <mapping class="c_dto.b_real.NoteAzienda" />
+    <mapping class="c_dto.b_real.EmailAzienda" />
+
+
+
+
+
+	<!-- Riferimenti e loro dati -->
+    <mapping class="c_dto.b_real.Riferimento" />
+    <mapping class="c_dto.b_real.Titolo" />
+    <mapping class="c_dto.b_real.Ruolo" />
+    <mapping class="c_dto.b_real.NoteContatto" />
+    <mapping class="c_dto.b_real.CellulareContatto" />
+    <mapping class="c_dto.b_real.EmailContatto" />
+    <mapping class="c_dto.b_real.FaxContatto" />
+    <mapping class="c_dto.b_real.CentralinoContatto" />
+
+	<!-- Prodotti e loro dati -->
+
+	<!-- Documenti e loro dati -->
+
+
+
+    <mapping class="c_dto.b_real.CAPCitta" />
+    <mapping class="c_dto.b_real.Civico" />
+    <mapping class="c_dto.b_real.Indirizzo" />
+    <!-- <mapping class="c_dto.b_real.IndirizzoAzienda" /> -->
+    <mapping class="c_dto.b_real.Strada" />
+
+
+
+  </session-factory>
+</hibernate-configuration>

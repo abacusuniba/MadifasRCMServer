@@ -1,0 +1,61 @@
+<objects default="id" path="c_dto.b_real.">
+
+
+<cliente class="Cliente">nome, stato, forma</cliente>
+<riferimento class="Riferimento">nome, cognome, cliente</riferimento>
+<!--
+<cliente>nome
+         <table name="azienda" fields="nome, secondonome, sito" />
+         <table name="consorzio" fields="nome" />
+         <table name="forma" fields="nome" />
+         <table name="gruppoaziende" fields="nome" />
+         <table name="tipoazienda" fields="nome" />
+         <table name="consorzio" fields="nome" />
+         <table name="consorzio" fields="nome" />
+         <table name="consorzio" fields="nome" />
+         <table name="consorzio" fields="nome" />
+</cliente>
+-->
+<fornitore list="">nome, stato</fornitore>
+<subagente list="">nome, stato</subagente>
+<segnalatore list="">nome, stato</segnalatore>
+<altro list="">nome, stato</altro>
+<settore list="">nome, stato</settore>
+<grupposocietario list="">nome</grupposocietario>
+<consorzio list="">nome</consorzio>
+<pagamento list="">nome, stato</pagamento>
+<trasporto list="">nome, stato</trasporto>
+<minimo list="">nome, stato</minimo>
+<cap list="">nome</cap>
+<citta list="">nome, stato</citta>
+<provincia list="">nome, stato</provincia>
+<regione list="">nome, stato</regione>
+<nazione list="">nome, stato</nazione>
+
+<prodotto>nome, fornitore_Fornitore</prodotto>
+<gruppoprodotto>nome</gruppoprodotto>
+<sottogruppoprodotto>nome</sottogruppoprodotto>
+<percentualefornitore>nome</percentualefornitore>
+<um>nome</um>
+<validita>nome</validita>
+
+
+<magazzino>nome</magazzino>
+<causaletrasporto>nome</causaletrasporto>
+<!--<documento>numero, data, tipo, riferimento</documento>-->
+<!--<documento>numero, data, tipo, riferimento, _RigaProdotto</documento>-->
+<!--<documento>numero, data, tipo, riferimento, _prodotti|prezzo|quantita</documento>-->
+<!----><documento>numero, data, tipo, riferimento, totale</documento>-->
+<!--<rigaprodotto>prezzo, quantita</rigaprodotto>-->
+<!--<rigaprodotto>prezzo, quantita</documento>-->
+
+<tipodocumento>tipo</tipodocumento>
+<iva>nome</iva>
+<percentualecollaboratore>nome</percentualecollaboratore>
+<formagiuridica>nome</formagiuridica>
+
+
+
+
+
+</objects>

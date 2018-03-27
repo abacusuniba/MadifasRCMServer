@@ -1,0 +1,963 @@
+
+<entities basepath="c_dto.b_real.">
+	<common>
+		<field name="id" column="id"/>
+	</common>
+	
+	
+	
+	
+	<entity class="categoria" table="categoria">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<sub name="categoriageneratore" column="idgeneratore"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="layout" table="layout">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<field name="pxlwidth" column="width"/>
+			<field name="pxlheight" column="height"/>
+			<list name="listarect"/>
+			<list name="listatesto"/>
+		</priority>
+	</entity>
+	
+	
+	
+	<entity class="rettangolopdf" table="rettangolo">
+		<id name="id" column="id"/>
+		<father column="idlayout"/>
+		<priority value="0">
+			<field name="x" column="x"/>
+			<field name="y" column="y"/>
+			<field name="width" column="width"/>
+			<field name="height" column="height"/>
+			<field name="titolo" column="titolo"/>
+			<enum name="allineatitolo" column="idtitoloalign"/>
+		</priority>
+	</entity>
+	
+	
+	
+	<entity class="rettangolopdftext" table="rettangolo2">
+		<id name="id" column="id"/>
+		<father column="idlayout"/>
+		<priority value="0">
+			<field name="x" column="x"/>
+			<field name="y" column="y"/>
+			<field name="width" column="width"/>
+			<field name="height" column="height"/>
+			<enum name="campo" column="idcampo"/>
+			<enum name="allineatitolo" column="idtitoloalign"/>
+			<field name="showSplittable" column="showSplittable"/>
+		</priority>
+	</entity>
+	
+	
+	
+		<entity class="tipodocumento" table="tipodocumento">
+			<id name="id" column="id"/>
+		<priority value="0">
+			<field name="tipo" column="tipo"/>
+			<field name="diciturafile" column="dicitura"/>
+			<field name="vocefile" column="vocestampa"/>
+			<enum name="stato" column="stato"/>
+			<sub name="lingua" column="idlingua"/>
+			<sub name="categoria" column="idcategoria"/>
+			<field name="showColSigla" column="showColSigla"/>
+			<field name="showColQuantita" column="showColQuantita"/>
+			<field name="showColPrezzo" column="showColPrezzo"/>
+			<field name="showColTempi" column="showColTempi"/>
+			<field name="showColConsegnaR" column="showColConsegnaR"/>
+			<field name="showColConsegnaP" column="showColConsegnaP"/>
+			<sub name="layout" column="idlayout"/>
+			<enum name="tipoazienda" column="iddestinatario"/>
+			<field name="showCondizioni" column="showCondizioni"/>
+			<field name="showAutoID" column="showAutoID"/>
+		</priority>
+		<priority value="1">
+			<sub name="magazzino" column="idmagazzino"/>
+			<enum name="movimentazione" column="idmovimentazione"/>
+			<field name="showSpedizione" column="showSpedizione"/>
+			<field name="showCollabs" column="showCollabs"/>
+			<field name="showRiferimentoFittizio" column="showRiferimentoFittizio"/>
+			<field name="showCausale" column="showCausale"/>
+			<field name="showFatturazione" column="showFatturazione"/>
+			<field name="showSoloProdotti" column="showSoloProdotti"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="documento" table="documento">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="numero" column="numero"/>
+			<field name="data" column="data"/>
+			<field name="revisione" column="revisione"/>
+			<sub name="tipo" column="idtipo"/>
+			<enum name="stato" column="stato"/>
+			<field name="datarev" column="datarev"/>
+			<!--><sub name="cliente" column="idcliente"/>-->
+			<sub name="riferimento" column="idcontatto"/>
+			<sub name="pagamento" column="idpagamento"/>
+			<sub name="trasporto" column="idtrasporto"/>
+			<sub name="minimo" column="idminimo"/>
+			<sub name="fornitore" column="idfornitore"/>
+		</priority>
+		<priority value="1">
+			<list name="documenti"/>
+			<list name="documentisub"/>
+			<list name="prodotti"/>
+			<list name="revisioni"/>
+			<list name="testo"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="documentosub" table="documentosub">
+		<id name="id" column="id"/>
+		<father column="iddocumento"/>
+		<priority value="0">
+			<field name="numero" column="numero"/>
+			<field name="data" column="data"/>
+			<field name="revisione" column="revisione"/>
+			<sub name="tipo" column="idtipo"/>
+			<enum name="stato" column="stato"/>
+			<field name="datarev" column="datarev"/>
+			<!--><sub name="cliente" column="idcliente"/>-->
+			<sub name="riferimento" column="idcontatto"/>
+			<sub name="pagamento" column="idpagamento"/>
+			<sub name="trasporto" column="idtrasporto"/>
+			<sub name="minimo" column="idminimo"/>
+			<sub name="fornitore" column="idfornitore"/>
+			<list name="prodotti"/>
+			<list name="testo"/>
+		</priority>
+		<priority value="1">
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="documentoassociato" table="documentoassociato">
+		<id name="id" column="id"/>
+		<father column="idfather"/>
+		<priority value="0">
+			<sub name="documento" column="iddocumento"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="documentoassociatosub" table="documentoassociatosub">
+		<id name="id" column="id"/>
+		<father column="idfather"/>
+		<priority value="0">
+			<sub name="documento" column="iddocumento"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="rigaprodotto" table="docprodotti">
+		<id name="id" column="id"/>
+		<father column="iddocumento"/>
+		<priority value="0">
+			<field name="progressivo" column="progressivo"/>
+			<field name="item" column="item"/>
+			<field name="prezzo" column="prezzo"/>
+			<field name="quantita" column="quantita"/>
+			<sub name="prodotto" column="idprodotto"/>
+			<sub name="tempo" column="idtempo"/>
+			<field name="consegnar" column="consegnar"/>
+			<field name="consegnap" column="consegnap"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="rigaprodottosub" table="docprodottisub">
+		<id name="id" column="id"/>
+		<father column="iddocumento"/>
+		<priority value="0">
+			<field name="progressivo" column="progressivo"/>
+			<field name="item" column="item"/>
+			<field name="prezzo" column="prezzo"/>
+			<field name="quantita" column="quantita"/>
+			<sub name="prodotto" column="idprodotto"/>
+			<sub name="tempo" column="idtempo"/>
+			<field name="consegnar" column="consegnar"/>
+			<field name="consegnap" column="consegnap"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="rigatesto" table="docrighe">
+		<id name="id" column="id"/>
+		<father column="iddocumento"/>
+		<priority value="0">
+			<field name="progressivo" column="progressivo"/>
+			<field name="text" column="text"/>
+			<field name="colorhex" column="colorhex"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="rigatestosub" table="docrighesub">
+		<id name="id" column="id"/>
+		<father column="iddocumento"/>
+		<priority value="0">
+			<field name="progressivo" column="progressivo"/>
+			<field name="text" column="text"/>
+			<field name="colorhex" column="colorhex"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="magazzino" table="magazzino">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="causaletrasporto" table="causaletrasporto">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="iva" table="iva">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+			<field name="percentuale" column="percentuale"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="lingua" table="lingua">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="lingua"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="um" table="um">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="um"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="nazione" table="nazione">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="tempoconsegna" table="tempo">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="regione" table="regione">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+		<priority value="1">
+			<sub name="nazione" column="idnazione"/>
+		</priority>
+	</entity>
+		 
+		 
+		 
+		 
+	<entity class="provincia" table="provincia">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+		<priority value="1">
+			<field name="sigla" column="sigla"/>
+			<sub name="regione" column="idregione"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="percentualecollaboratore" table="percentualec">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="percentuale"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="percentualefornitore" table="percentualef">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="percentuale"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="validita" table="validita">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="consorzio" table="consorzio">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="condizionecommerciale" table="condizioni">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<sub name="pagamento" column="idpagamento"/>
+			<sub name="trasporto" column="idtrasporto"/>
+			<sub name="minimo" column="idminimo"/>
+			<sub name="fornitore" column="idfornitore"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+		<father column="idazienda"/>
+	</entity>
+	
+	
+	
+	
+	<entity class="schedanetto" table="scheda">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<sub name="prodotto" column="idprodotto"/>
+			<field name="prezzo" column="prezzo"/>
+			<field name="data" column="data"/>
+		</priority>
+		<father column="idazienda"/>
+	</entity>
+	
+	
+	
+	
+	<entity class="prodotto" table="prodotto">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<field name="codice" column="codice"/>
+			<enum name="stato" column="stato"/>
+			<sub name="fornitore" column="idfornitore"/>
+			<list name="descrizioni"/>
+		</priority>
+		<priority value="1">
+			<field name="prezzo" column="prezzo"/>
+			<sub name="um" column="idum"/>
+			<sub name="gruppo" column="idgruppo"/>
+			<!--><sub name="fornitore" column="idfornitore"/>-->
+		</priority>
+		<!--><manytomany class="descrizione" table="descrprodotto" column="idprodotto"/>-->
+	</entity>
+	
+	
+	
+	
+	<entity class="descrizione" table="descrizione">
+		<id name="id" column="id"/>
+		<father column="idprodotto"/>
+		<priority value="0">
+			<field name="descrizione" column="descrizione"/>
+			<sub name="lingua" column="idlingua"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="descrizionepagamento" table="descrpagamento">
+		<id name="id" column="id"/>
+		<father column="idpagamento"/>
+		<priority value="0">
+			<field name="descrizione" column="descrizione"/>
+			<sub name="lingua" column="idlingua"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="descrizionetrasporto" table="descrtrasporto">
+		<id name="id" column="id"/>
+		<father column="idtrasporto"/>
+		<priority value="0">
+			<field name="descrizione" column="descrizione"/>
+			<sub name="lingua" column="idlingua"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="gruppoprodotto" table="gruppo">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="gruppo"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="sottogruppoprodotto" table="sottogruppo">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="sottogruppo"/>
+			<enum name="stato" column="stato"/>
+			<sub name="gruppo" column="idgruppo"/>
+		</priority>
+	</entity>
+	
+	
+	
+	<!--
+	<entity class="indirizzo" table="indcivico">
+		<manytomany class="" table="indazienda" column="idindirizzo"/>
+		<manytomany class="" table="elencoindirizzi" column="idindirizzo"/>
+		<id name="id" column="id"/>
+		<priority value="0">
+			<sub name="civico" column="idcivico"/>
+			<sub name="strada" column="idindirizzo2"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="civico" table="civico">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="numero" column="civico"/>
+		</priority>
+	</entity>
+	-->
+	
+	
+	
+	<entity class="strada" table="indirizzo">
+		<manytomany class="" table="indazienda" column="idindirizzo"/>
+		<manytomany class="" table="elencoindirizzi" column="idindirizzo"/>
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="indirizzo"/>
+			<field name="civico" column="civico"/>
+			<sub name="cap" column="idcap"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="capcitta" table="capcitta">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<sub name="cap" column="idcap"/>
+			<sub name="citta" column="idcitta"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="centralinoazienda" table="centralino">
+		<id name="id" column="id"/>
+		<father column="idazienda"/>
+		<priority value="0">
+			<field name="numero" column="numero"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="faxazienda" table="faxazienda">
+		<id name="id" column="id"/>
+		<father column="idazienda"/>
+		<priority value="0">
+			<field name="numero" column="numero"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="noteazienda" table="noteazienda">
+		<id name="id" column="id"/>
+		<father column="idazienda"/>
+		<priority value="0">
+			<field name="note" column="note"/>
+			<field name="data" column="data"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="emailazienda" table="emailazienda">
+		<id name="id" column="id"/>
+		<father column="idazienda"/>
+		<priority value="0">
+			<field name="email" column="email"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="sito" table="sitoazienda">
+		<id name="id" column="id"/>
+		<father column="idazienda"/>
+		<priority value="0">
+			<field name="nome" column="sito"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="notecontatto" table="elenconote">
+		<id name="id" column="id"/>
+		<father column="idcontatto"/>
+		<priority value="0">
+			<field name="note" column="note"/>
+			<field name="data" column="data"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="cellularecontatto" table="elencocellulare">
+		<id name="id" column="id"/>
+		<father column="idcontatto"/>
+		<priority value="0">
+			<field name="numero" column="cellulare"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="emailcontatto" table="elencoemail">
+		<id name="id" column="id"/>
+		<father column="idcontatto"/>
+		<priority value="0">
+			<field name="email" column="email"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="faxcontatto" table="elencofax" >
+		<id name="id" column="id"/>
+		<father column="idcontatto"/>
+		<priority value="0">
+			<field name="numero" column="fax"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="centralinocontatto" table="elencoufficio">
+		<father column="idcontatto"/>
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="numero" column="ufficio"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="riferimento" table="contatto">
+		<id name="id" column="id"/>
+		<father column="idazienda" ref="azienda"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<field name="cognome" column="cognome"/>
+			<list name="note"/>
+			<list name="indirizzi"/>
+		</priority>
+		<priority value="1">
+			<sub name="titolo" column="idtitolo"/>
+			<sub name="ruolo" column="idruolo"/>
+> 			<enum name="stato" column="stato"/>
+			<list name="cellulare"/>
+			<list name="email"/>
+			<list name="fax"/>
+			<list name="ufficio"/>
+		</priority>
+		<manytomany class="indirizzo" table="elencoindirizzi" column="idcontatto"/>
+	</entity>
+	
+	
+	
+	
+	<entity class="titolo" table="titolo">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="titolo" column="titolo"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="ruolo" table="ruolo">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="ruolo" column="ruolo"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="grupposocietario" table="gruppoaziende">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="cap" table="cap">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="cap" column="nome"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="citta" table="citta">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+		<priority value="1">
+			<sub name="provincia" column="idprovincia"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="formagiuridica" table="forma">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="minimo" table="minimo">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="minimo"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="trasporto" table="trasporto">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+			<list name="descrizioni"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="pagamento" table="pagamento">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+			<list name="descrizioni"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="settore" table="settore">
+		<id name="id" column="id"/>
+		<manytomany class="" table="aziendasettori" column="idsettore"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<enum name="stato" column="stato"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="parametro" table="parametri">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="root" column="root"/>
+			<field name="rootmac" column="rootmac"/>
+			<field name="rootwin" column="rootwin"/>
+		</priority>
+	</entity>
+	
+	
+	
+	
+	<entity class="altro" table="azienda">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<field name="secondonome" column="secondonome"/>
+			<enum name="stato" column="stato"/>
+			<list name="riferimenti"/>
+			<list name="indirizzi"/>
+		</priority>
+		<priority value="1">
+			<field name="piva" column="piva"/>
+			<field name="codfisc" column="codfisc"/>
+			<sub name="forma" column="idforma"/>
+			<list name="centralino"/>
+			<list name="fax"/>
+			<list name="email"/>
+			<list name="siti"/>
+			<list name="note"/>
+		</priority>
+<!--		<manytomany class="indirizzo" table="indazienda" column="idazienda"/>-->
+		<manytomany class="strada" table="indazienda" column="idazienda"/>
+		<discriminator value="3" column="idtipo"/>
+	</entity>
+	
+	
+	
+	
+	<entity class="segnalatore" table="azienda">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<field name="secondonome" column="secondonome"/>
+			<enum name="stato" column="stato"/>
+			<list name="riferimenti"/>
+			<list name="indirizzi"/>
+		</priority>
+		<priority value="1">
+			<field name="piva" column="piva"/>
+			<field name="codfisc" column="codfisc"/>
+			<sub name="forma" column="idforma"/>
+			<list name="centralino"/>
+			<list name="fax"/>
+			<list name="email"/>
+			<list name="siti"/>
+			<list name="note"/>
+		</priority>
+		<!--		<manytomany class="indirizzo" table="indazienda" column="idazienda"/>-->
+				<manytomany class="strada" table="indazienda" column="idazienda"/>
+		<discriminator value="5" column="idtipo"/>
+	</entity>
+	
+	
+	
+	
+	<entity class="subagente" table="azienda">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<field name="secondonome" column="secondonome"/>
+			<enum name="stato" column="stato"/>
+			<list name="riferimenti"/>
+			<list name="indirizzi"/>
+		</priority>
+		<priority value="1">
+			<field name="piva" column="piva"/>
+			<field name="codfisc" column="codfisc"/>
+			<sub name="forma" column="idforma"/>
+			<list name="centralino"/>
+			<list name="fax"/>
+			<list name="email"/>
+			<list name="siti"/>
+			<list name="note"/>
+		</priority>
+		<!--		<manytomany class="indirizzo" table="indazienda" column="idazienda"/>-->
+				<manytomany class="strada" table="indazienda" column="idazienda"/>
+		<discriminator value="4" column="idtipo"/>
+	</entity>
+	
+	
+	
+	
+	<entity class="fornitore" table="azienda">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<field name="secondonome" column="secondonome"/>
+			<enum name="stato" column="stato"/>
+			<list name="riferimenti"/>
+			<list name="indirizzi"/>
+		</priority>
+		<priority value="1">
+			<field name="piva" column="piva"/>
+			<field name="codfisc" column="codfisc"/>
+			<sub name="forma" column="idforma"/>
+			<list name="centralino"/>
+			<list name="fax"/>
+			<list name="email"/>
+			<list name="siti"/>
+			<list name="note"/>
+		</priority>
+		<!--
+		<secondarytables>
+			<table name="fornitore">
+				<id name="id" column="id"/>
+			</table>
+		</secondarytables>
+		-->
+			<!--		<manytomany class="indirizzo" table="indazienda" column="idazienda"/>-->
+					<manytomany class="strada" table="indazienda" column="idazienda"/>
+		<discriminator value="2" column="idtipo"/>
+	</entity>
+	
+	
+	
+	
+	<entity class="cliente" table="azienda">
+		<id name="id" column="id"/>
+		<priority value="0">
+			<field name="nome" column="nome"/>
+			<field name="secondonome" column="secondonome"/>
+			<enum name="stato" column="stato"/>
+			<sub name="forma" column="idforma"/>
+			<list name="riferimenti"/>
+			<list name="condizioni"/>
+			<list name="settori"/>
+			<list name="indirizzi"/>
+			<list name="scheda"/>
+		</priority>
+		<priority value="1">
+			<field name="piva" column="piva"/>
+			<field name="codfisc" column="codfisc"/>
+			<list name="centralino"/>
+			<list name="fax"/>
+			<list name="email"/>
+			<list name="siti"/>
+			<list name="note"/>
+			<sub name="gruppo" column="idgruppo"/>
+			<sub name="consorzio" column="idconsorzio"/>
+		</priority>
+		<!--
+		<secondarytables>
+			<table name="cliente">
+				<id name="id" column="id"/>
+				<priority value="0">
+					<list name="settori"/>
+				</priority>
+				<priority value="1">
+					<sub name="gruppo" column="idgruppo"/>
+					<sub name="consorzio" column="idconsorzio"/>
+				</priority>
+			</table>
+		</secondarytables>
+		-->
+			<!--		<manytomany class="indirizzo" table="indazienda" column="idazienda"/>-->
+					<manytomany class="strada" table="indazienda" column="idazienda"/>
+		<manytomany class="settore" table="aziendasettori" column="idazienda"/>
+		<discriminator value="1" column="idtipo"/>
+	</entity>
+</entities>

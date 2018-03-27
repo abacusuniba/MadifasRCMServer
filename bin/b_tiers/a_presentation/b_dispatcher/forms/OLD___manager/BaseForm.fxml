@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar prefWidth="1360.0" style="-fx-font-weight: bold;">
+        <menus>
+          <Menu mnemonicParsing="false" text="Gestione aziende">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Nuova azienda" />
+                  <MenuItem mnemonicParsing="false" text="Visualizza elenco aziende" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Gestione prodotti">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Nuovo prodotto" />
+                  <MenuItem mnemonicParsing="false" text="Visualizza elenco prodotti" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Gestione documenti">
+            <items>
+                  <Menu mnemonicParsing="false" text="Documenti">
+                     <items>
+                    <MenuItem mnemonicParsing="false" text="Nuovo documento" />
+                        <MenuItem mnemonicParsing="false" text="Visualizza elenco documenti" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Tipi di documento">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Nuovo tipo di documento" />
+                        <MenuItem mnemonicParsing="false" text="Visualizza elenco tipi di documento" />
+                     </items>
+                  </Menu>
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Analisi &amp; Statistiche">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Analisi offerto" />
+                  <MenuItem mnemonicParsing="false" text="Analisi venduto" />
+                  <MenuItem mnemonicParsing="false" text="Analisi fatturato" />
+                  <MenuItem mnemonicParsing="false" text="Analisi offerto su venduto" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Impostazioni">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Account di posta elettronica" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Manager">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Account di posta elettronica" />
+               </items>
+            </Menu>
+        </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </MenuBar>
+      <TableView layoutY="75.0" prefHeight="615.0" prefWidth="1360.0">
+        <columns>
+          <TableColumn prefWidth="200.0" text="Mittente" />
+          <TableColumn prefWidth="960.0" text="Oggetto" />
+            <TableColumn prefWidth="200.0" text="Data/Ora" />
+        </columns>
+      </TableView>
+      <ComboBox layoutY="37.0" prefWidth="250.0" />
+      <TextField layoutX="309.0" layoutY="37.0" prefHeight="25.0" prefWidth="295.0" promptText="Cerca nelle email" />
+   </children>
+</AnchorPane>

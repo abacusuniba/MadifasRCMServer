@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.10" icons="true" automaticImage="PNG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
+  router="FAN">  
+  <package id="1" language="java" name="b_tiers.a_presentation.a_frontcontroller" project="GestionaleRCM_Client" 
+    file="/GestionaleRCM_Client/src/b_tiers/a_presentation/a_frontcontroller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="435" width="403" x="23" y="13"/>    
+    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="2" language="java" name="b_tiers.a_presentation.b_dispatcher" project="GestionaleRCM_Client" 
+    file="/GestionaleRCM_Client/src/b_tiers/a_presentation/b_dispatcher" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="493" width="681" x="471" y="28"/>    
+    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="3" language="java" name="b_tiers.a_presentation.a_frontcontroller.FrontController" 
+    project="GestionaleRCM_Client" 
+    file="/GestionaleRCM_Client/src/b_tiers/a_presentation/a_frontcontroller/FrontController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="206" y="207"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="b_tiers.a_presentation.b_dispatcher.Dispatcher" project="GestionaleRCM_Client" 
+    file="/GestionaleRCM_Client/src/b_tiers/a_presentation/b_dispatcher/Dispatcher.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="657" y="276"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="5" language="java" name="b_tiers.a_presentation.b_dispatcher.forms.administrator" 
+    project="GestionaleRCM_Client" 
+    file="/GestionaleRCM_Client/src/b_tiers/a_presentation/b_dispatcher/forms/administrator" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="962" y="152"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="6" language="java" name="b_tiers.a_presentation.b_dispatcher.forms.employee" 
+    project="GestionaleRCM_Client" file="/GestionaleRCM_Client/src/b_tiers/a_presentation/b_dispatcher/forms/employee" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="962" y="266"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="7" language="java" name="b_tiers.a_presentation.b_dispatcher.forms.manager" 
+    project="GestionaleRCM_Client" file="/GestionaleRCM_Client/src/b_tiers/a_presentation/b_dispatcher/forms/manager" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="968" y="390"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <association id="8">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="9" name="singleton"/>      
+      <multiplicity id="10" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="11">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="12" name="dispatcher"/>      
+      <multiplicity id="13" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

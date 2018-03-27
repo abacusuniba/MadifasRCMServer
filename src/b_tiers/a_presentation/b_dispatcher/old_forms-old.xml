@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE forms [
+   <!ELEMENT forms (start, employee, manager, administrator)>
+   <!ATTLIST forms package CDATA #REQUIRED>
+   <!ATTLIST forms extension CDATA #REQUIRED>
+
+   <!ELEMENT start (#PCDATA)>
+   <!ATTLIST start resource CDATA #REQUIRED>
+
+
+   <!ELEMENT administrator (service+)>
+   <!ELEMENT employee (service+)>
+   <!ELEMENT manager (service+)>
+
+
+   <!ELEMENT service (#PCDATA)>
+   <!ATTLIST service name CDATA #REQUIRED>
+   <!ATTLIST service class CDATA #IMPLIED>
+   <!ATTLIST service resource CDATA #REQUIRED>
+
+
+]>
+<forms package=".b_tiers.a_presentation.b_dispatcher.forms." extension=".fxml" default="login">
+
+   <employee resource="BaseForm">
+   </employee>
+
+   <manager resource="BaseForm">
+   </manager>
+
+   <administrator resource="BaseForm" title="Pannello amministratore">
+     <!-- Clienti -->
+       <!-- ok --><service name="lista" class="cliente" resource="ElencoCliente" title="__"/>
+       <!-- ok --><service name="apri" class="cliente" resource="DatiCliente" title="__"/>
+       <!-- ok --><service name="nuovo" class="cliente" resource="NuovoCliente" title="__"/>
+         <!-- Clienti_riferimenti -->
+           <!-- ok --><service name="apri" class="riferimento" resource="DatiRiferimento" title="Dati riferimento"/>
+           <!-- ok --><service name="nuovo" class="riferimento" resource="NuovoRiferimento" title="Nuovo riferimento"/>
+         <!-- Clienti_condizioni commerciali -->
+           <!-- ok --><service name="apri" class="condizionecommerciale" resource="DatiCondizioneCommerciale" title="__"/>
+           <!-- ok --><service name="nuovo" class="condizionecommerciale" resource="NuovoCondizioneCommerciale" title="__"/>
+         <!-- Clienti_scheda netti -->
+           <!-- ok --><service name="apri" class="schedanetto" resource="DatiSchedaNetto" title="__"/>
+           <!-- ok --><service name="nuovo" class="schedanetto" resource="NuovoSchedaNetto" title="__"/>
+
+     <!-- Fornitori -->
+     <!-- ok --><service name="lista" class="fornitore" resource="ElencoFornitore" title="__"/>
+     <!-- ok --><service name="apri" class="fornitore" resource="DatiFornitore" title="__"/>
+     <!-- ok --><service name="nuovo" class="fornitore" resource="NuovoFornitore" title="__"/>
+         <!-- Fornitori_riferimenti -->
+           <!-- ok --><!--<service name="apri" class="riferimento" resource="DatiRiferimento" title="Dati riferimento"/>-->
+           <!-- ok --><!--<service name="nuovo" class="riferimento" resource="NuovoRiferimento" title="Nuovo riferimento"/>-->
+
+     <!-- SubAgenti -->
+     <!-- ok --><service name="lista" class="subagente" resource="ElencoSubagente" title="__"/>
+     <!-- ok --><service name="apri" class="subagente" resource="DatiSubagente" title="__"/>
+     <!-- ok --><service name="nuovo" class="subagente" resource="NuovoSubagente" title="__"/>
+         <!-- SubAgenti_riferimenti -->
+           <!-- ok --><!--<service name="apri" class="riferimento" resource="DatiRiferimento" title="Dati riferimento"/>-->
+           <!-- ok --><!--<service name="nuovo" class="riferimento" resource="NuovoRiferimento" title="Nuovo riferimento"/>-->
+
+     <!-- Segnalatori -->
+     <!-- ok --><service name="lista" class="segnalatore" resource="ElencoSegnalatore" title="__"/>
+     <!-- ok --><service name="apri" class="segnalatore" resource="DatiSegnalatore" title="__"/>
+     <!-- ok --><service name="nuovo" class="segnalatore" resource="NuovoSegnalatore" title="__"/>
+         <!-- Segnalatori_riferimenti -->
+           <!-- ok --><!--<service name="apri" class="riferimento" resource="DatiRiferimento" title="Dati riferimento"/>-->
+           <!-- ok --><!--<service name="nuovo" class="riferimento" resource="NuovoRiferimento" title="Nuovo riferimento"/>-->
+
+     <!-- Altri -->
+     <!-- ok --><service name="lista" class="altro" resource="ElencoAltro" title="Altri contatti"/>
+     <!-- ok --><service name="apri" class="altro" resource="DatiAltro" title="__"/>
+     <!-- ok --><service name="nuovo" class="altro" resource="NuovoAltro" title="__"/>
+         <!-- Altri_riferimenti -->
+           <!-- ok --><!--<service name="apri" class="riferimento" resource="DatiRiferimento" title="Dati riferimento"/>-->
+           <!-- ok --><!--<service name="nuovo" class="riferimento" resource="NuovoRiferimento" title="Nuovo riferimento"/>-->
+
+     <!-- Modalita' di pagamento -->
+     <service name="lista" class="pagamento" resource="ElencoPagamento" title="Modalita' di pagamento"/>
+     <service name="apri" class="pagamento" resource="DatiPagamento" title="__"/>
+     <service name="nuovo" class="pagamento" resource="NuovoPagamento" title="__"/>
+
+     <!-- Condizioni di trasporto -->
+     <service name="lista" class="trasporto" resource="ElencoTrasporto" title="Condizioni di trasporto"/>
+     <service name="apri" class="trasporto" resource="DatiTrasporto" title="__"/>
+     <service name="nuovo" class="trasporto" resource="NuovoTrasporto" title="__"/>
+
+     <!-- Minimo -->
+     <service name="lista" class="minimo" resource="ElencoMinimo" title="Minimi d' ordine"/>
+     <service name="apri" class="minimo" resource="DatiMinimo" title="__"/>
+     <service name="nuovo" class="minimo" resource="NuovoMinimo" title="__"/>
+
+     <!-- Settori -->
+     <service name="lista" class="settore" resource="ElencoSettore" title="Settori"/>
+     <service name="apri" class="settore" resource="DatiSettore" title="__"/>
+     <service name="nuovo" class="settore" resource="NuovoSettore" title="__"/>
+
+     <!-- Gruppi societari -->
+     <service name="lista" class="grupposocietario" resource="ElencoGruppo" title="Gruppi"/>
+     <service name="apri" class="grupposocietario" resource="DatiGruppo" title="__"/>
+     <service name="nuovo" class="grupposocietario" resource="NuovoGruppo" title="__"/>
+
+     <!-- Consorzi -->
+     <service name="lista" class="consorzio" resource="ElencoConsorzio" title="Consorzi"/>
+     <service name="apri" class="consorzio" resource="DatiConsorzio" title="__"/>
+     <service name="nuovo" class="consorzio" resource="NuovoConsorzio" title="__"/>
+
+     <!-- Percentuale fornitori -->
+     <service name="lista" class="percentualefornitore" resource="ElencoPercentualeF" title="Percentuali"/>
+     <service name="apri" class="percentualefornitore" resource="DatiPercentualeF" title="__"/>
+     <service name="nuovo" class="percentualefornitore" resource="NuovoPercentualeF" title="__"/>
+
+     <!-- Validita' -->
+     <service name="lista" class="validita" resource="ElencoValidita" title="Validita'"/>
+     <service name="apri" class="validita" resource="DatiValidita" title="__"/>
+     <service name="nuovo" class="validita" resource="NuovoValidita" title="__"/>
+
+     <!-- Forma giuridica -->
+     <service name="lista" class="formagiuridica" resource="ElencoFormaGiuridica" title="Forme giuridiche"/>
+     <service name="apri" class="formagiuridica" resource="DatiFormaGiuridica" title="__"/>
+     <service name="nuovo" class="formagiuridica" resource="NuovoFormaGiuridica" title="__"/>
+
+     <!-- Nazione -->
+     <service name="lista" class="nazione" resource="ElencoNazione" title="Nazioni"/>
+     <service name="apri" class="nazione" resource="DatiNazione" title="__"/>
+     <service name="nuovo" class="nazione" resource="NuovoNazione" title="__"/>
+
+     <!-- Regione -->
+     <service name="lista" class="regione" resource="ElencoRegione" title="Regioni"/>
+     <service name="apri" class="regione" resource="DatiRegione" title="__"/>
+     <service name="nuovo" class="regione" resource="NuovoRegione" title="__"/>
+
+     <!-- Provincia -->
+     <service name="lista" class="provincia" resource="ElencoProvincia" title="Province"/>
+     <service name="apri" class="provincia" resource="DatiProvincia" title="__"/>
+     <service name="nuovo" class="provincia" resource="NuovoProvincia" title="__"/>
+
+     <!-- Citta' -->
+     <service name="lista" class="citta" resource="ElencoCitta" title="Citta'"/>
+     <service name="apri" class="citta" resource="DatiCitta" title="__"/>
+     <service name="nuovo" class="citta" resource="NuovoCitta" title="__"/>
+
+     <!-- Prodotto -->
+     <service name="lista" class="prodotto" resource="ElencoProdotto" title="Prodotti"/>
+     <service name="apri" class="prodotto" resource="DatiProdotto" title="__"/>
+     <service name="nuovo" class="prodotto" resource="NuovoProdotto" title="__"/>
+
+     <!-- Magazzino -->
+     <service name="lista" class="magazzino" resource="ElencoMagazzino" title="Magazzini"/>
+     <service name="apri" class="magazzino" resource="DatiMagazzino" title="__"/>
+     <service name="nuovo" class="magazzino" resource="NuovoMagazzino" title="__"/>
+
+     <!-- Documento -->
+     <service name="lista" class="documento" resource="ElencoDocumento" title="Documenti"/>
+     <service name="apri" class="documento" resource="DatiDocumento" title="__"/>
+     <service name="analisi" class="documento" resource="AnalisiDocumento" title="Documenti"/>
+
+     <!-- Tipo Documento -->
+     <service name="lista" class="tipodocumento" resource="ElencoTipoDocumento" title="Tipi di documento"/>
+     <service name="apri" class="tipodocumento" resource="DatiTipoDocumento" title="__"/>
+
+
+     <!-- Analisi Documento -->
+
+
+
+
+
+     <service name="lista" class="cap" resource="ElencoCap" title="CAP"/>
+
+     <service name="lista" class="gruppoprodotto" resource="ElencoGruppoProdotto" title="Gruppi prodotti"/>
+     <service name="lista" class="sottogruppoprodotto" resource="ElencoSottogruppoProdotto" title="Sottogruppi prodotti"/>
+     <service name="lista" class="um" resource="ElencoUM" title="Unita' di misura"/>
+
+
+     <service name="lista" class="causaletrasporto" resource="ElencoCausaleTrasporto" title="Causali di trasporto"/>
+
+     <service name="lista" class="iva" resource="ElencoIva" title="Iva"/>
+
+
+
+     <!-- Percentuale collaboratori -->
+     <service name="lista" class="percentualecollaboratore" resource="ElencoPercentualeC" title="Percentuali"/>
+     <service name="apri" class="percentualecollaboratore" resource="DatiPercentualeC" title="__"/>
+     <service name="nuovo" class="percentualecollaboratore" resource="NuovoPercentualeC" title="__"/>
+
+
+
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+<!--
+     <service name="apri" class="noteazienda" resource="DatiNoteAzienda" title="__"/>
+     <service name="nuovo" class="noteazienda" resource="NuovoNoteAzienda" title="__"/>
+-->
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+
+<!--
+     <service name="nuovo" class="riferimento" resource="NuovoRiferimento" title="Nuovo Riferimento"/>
+     <service name="apri" class="riferimento" resource="DatiRiferimento" title="Dati Riferimento"/>
+
+     <service name="nuovo" class="cliente" resource="NuovoCliente" title="Nuovo cliente"/>
+
+     <service name="nuovo" class="fornitore" resource="NuovoFornitore" title="Nuovo Fornitore"/>
+     <service name="apri" class="fornitore" resource="DatiFornitore" title="Dati Fornitore"/>
+
+     <service name="nuovo" class="contatto" resource="NuovoContatto" title="Nuovo Contatto"/>
+     <service name="apri" class="contatto" resource="DatiContatto" title="Dati Contatto"/>
+
+     <service name="nuovo" class="prodotto" resource="NuovoProdotto" title="Nuovo Prodotto"/>
+
+     <service name="nuovo" class="documento" resource="" title=""/>
+
+     <service name="nuovo" class="tipodocumento" resource="" title=""/>
+     <service name="lista" class="tipodocumento" resource="ElencoTipoDocumento" title="Tipi di documento"/>
+-->
+   </administrator>
+
+</forms>

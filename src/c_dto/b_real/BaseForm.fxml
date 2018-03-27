@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="b_tiers.a_presentation.b_dispatcher.forms.administrator.controller.ControllerBaseForm">
+   <children>
+      <MenuBar fx:id="menuBar" prefWidth="1360.0" style="-fx-font-weight: bold;">
+        <menus>
+          <Menu mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Gestione Aziende">
+            <items>
+                  <Menu mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Clienti">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoCliente" style="-fx-background-color: #ffff00;" text="Elenco Clienti" />
+                        <Menu mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Condizioni commerciali">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#btnElencoPagamento" style="-fx-background-color: #ffff00;" text="Modalità di pagamento" />
+                              <MenuItem mnemonicParsing="false" onAction="#btnElencoTrasporto" style="-fx-background-color: #ffff00;" text="Condizioni di trasporto" />
+                              <MenuItem mnemonicParsing="false" onAction="#btnElencoMinimo" style="-fx-background-color: #ffff00;" text="Minimi d'ordine" />
+                           </items>
+                        </Menu>
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoSettori" style="-fx-background-color: #ffff00;" text="Settori operativi" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoGruppoSoc" style="-fx-background-color: #ffff00;" text="Gruppi societari" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoConsorzio" style="-fx-background-color: #ffff00;" text="Consorzi" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Fornitori">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoFornitore" style="-fx-background-color: #ffff00;" text="Elenco Fornitori" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoPercentualeF" style="-fx-background-color: #ffff00;" text="Percentuali" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoValidita" style="-fx-background-color: #ffff00;" text="Validità documenti" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Collaboratori">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoSubagente" style="-fx-background-color: #ffff00;" text="Elenco SubAgenti" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoSegnalatore" style="-fx-background-color: #ffff00;" text="Elenco Segnalatori" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoPercentualeC" style="-fx-background-color: #ffff00;" text="Percentuali" />
+                    </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" onAction="#btnElencoAltro" style="-fx-background-color: #ffff00;" text="Elenco Altri" />
+                  <Menu mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Altre info">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoFormaGiuridica" style="-fx-background-color: #ffff00;" text="Forme giuridiche" />
+                        <Menu mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="CAP e Città">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#btnElencoCap" style="-fx-background-color: #ffff00;" text="Elenco CAP" />
+                              <MenuItem mnemonicParsing="false" onAction="#btnElencoCitta" style="-fx-background-color: #ffff00;" text="Elenco Città" />
+                              <MenuItem mnemonicParsing="false" onAction="#btnElencoCap" style="-fx-background-color: #ffff00;" text="Relazioni CAP e Città" />
+                           </items>
+                        </Menu>
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoProvincia" style="-fx-background-color: #ffff00;" text="Elenco Province" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoRegione" style="-fx-background-color: #ffff00;" text="Elenco Regioni" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoNazione" text="Elenco Nazioni" />
+                     </items>
+                  </Menu>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Gestione prodotti">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#btnElencoProdotto" style="-fx-background-color: #ffff00;" text="Prodotti" />
+                  <Menu mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Gestione magazzini">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoMagazzino" style="-fx-background-color: #ffff00;" text="Magazzini" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoCausaleTrasporto" style="-fx-background-color: #ffff00;" text="Causali di trasporto" />
+                     </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Listini" />
+                  <MenuItem mnemonicParsing="false" onAction="#btnElencoIva" style="-fx-background-color: #ffff00;" text="Aliquote IVA" />
+                  <Menu mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Gruppi">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#btnElencoGruppoProdotto" style="-fx-background-color: #ffff00;" text="Elenco Gruppi" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnElencoSottoruppoProdotto" style="-fx-background-color: #ffff00;" text="Elenco Sottogruppi" />
+                    </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" onAction="#btnElencoUM" style="-fx-background-color: #ffff00;" text="Unità di misura" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Gestione documenti">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#btnElencoDocumento" style="-fx-background-color: #ffff00;" text="Elenco documenti" />
+                  <MenuItem mnemonicParsing="false" onAction="#btnElencoTipoDocumento" style="-fx-background-color: #ffff00;" text="Elenco tipi di documento" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="-----Analisi &amp; Statistiche">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#btnStatistiche" style="-fx-background-color: #ffff00;" text="Statistiche" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Analisi venduto" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Analisi fatturato" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Analisi offerto su venduto" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Varie">
+               <items>
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Parametri posta elettronica" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: #ffff00;" text="Parametri software" />
+               </items>
+            </Menu>
+        </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </MenuBar>
+      <TableView layoutX="-1.0" layoutY="75.0" prefHeight="615.0" prefWidth="1360.0">
+        <columns>
+          <TableColumn prefWidth="200.0" text="Mittente" />
+          <TableColumn prefWidth="960.0" text="Oggetto" />
+            <TableColumn prefWidth="200.0" text="Data/Ora" />
+        </columns>
+      </TableView>
+      <ComboBox layoutY="37.0" prefWidth="250.0" />
+      <TextField layoutX="309.0" layoutY="37.0" prefHeight="25.0" prefWidth="295.0" promptText="Cerca nelle email" />
+   </children>
+</AnchorPane>

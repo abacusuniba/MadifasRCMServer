@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE forms [
+   <!ELEMENT forms (start, employee, manager, administrator)>
+   <!ATTLIST forms package CDATA #REQUIRED>
+   <!ATTLIST forms extension CDATA #REQUIRED>
+
+   <!ELEMENT start (#PCDATA)>
+   <!ATTLIST start resource CDATA #REQUIRED>
+
+
+   <!ELEMENT administrator (service+)>
+   <!ELEMENT employee (service+)>
+   <!ELEMENT manager (service+)>
+
+
+   <!ELEMENT service (#PCDATA)>
+   <!ATTLIST service name CDATA #REQUIRED>
+   <!ATTLIST service class CDATA #IMPLIED>
+   <!ATTLIST service resource CDATA #REQUIRED>
+
+
+]>
+<forms package=".b_tiers.a_presentation.b_dispatcher.forms." extension=".fxml" default="BaseForm">
+</forms>

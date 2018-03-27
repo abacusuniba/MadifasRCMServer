@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final utlizzo versione della libreria JasperReports6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Offerte" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0570ec33-5c46-4f05-9073-15520af667e9">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<textField>
+				<reportElement x="740" y="21" width="30" height="30" uuid="1cfc1c6b-d151-4731-bb76-ff9706fc8a7b"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="0" width="740" height="21" uuid="d4b41e12-b2bb-4b4d-ab53-c95287ae503c"/>
+				<textFieldExpression><![CDATA["Campo di Testo"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="61" height="51" uuid="c5cff87f-872b-4491-a373-a38e84950f54"/>
+				<imageExpression><![CDATA["src/b_tiers/b_business/b_services/logorcm.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="60" y="21" width="370" height="30" uuid="58272698-7e2f-49da-b062-9860c8519dbe"/>
+				<textFieldExpression><![CDATA["Campo di Testo"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="21" width="180" height="30" uuid="251e8e12-77fc-4d05-ba13-3fb29755895d"/>
+				<textFieldExpression><![CDATA["Campo di Testo"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="610" y="21" width="130" height="30" uuid="e7422101-9375-4f24-b742-09e826423316"/>
+				<textFieldExpression><![CDATA["Campo di Testo"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="770" y="21" width="31" height="30" uuid="c32cb1cf-eaa1-4fbf-8967-a54cbe18f15d"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

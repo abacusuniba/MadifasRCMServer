@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="AgroPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="b_tiers.a_presentation.b_dispatcher.forms.controller.ControllerLogin">
+  <children>
+    <Label fx:id="lbltitolo" alignment="CENTER" layoutX="10.0" layoutY="48.0" prefHeight="45.0" prefWidth="580.0" text="HService Manager" textOverrun="CLIP">
+      <font>
+        <Font size="30.0" />
+      </font>
+    </Label>
+    <TextField fx:id="txtUsername" layoutX="96.0" layoutY="135.0" prefHeight="33.0" prefWidth="407.0" promptText="Username" />
+    <PasswordField fx:id="txtPassword" layoutX="96.0" layoutY="217.0" prefHeight="33.0" prefWidth="407.0" promptText="Password" />
+    <Button fx:id="btnLogin" layoutX="96.0" layoutY="304.0" mnemonicParsing="false" onKeyPressed="#btnLogin" onMouseClicked="#btnLogin" prefHeight="35.0" prefWidth="120.0" text="Accedi" />
+      <Button id="btnSignin" fx:id="btnSvuota" layoutX="240.0" layoutY="304.0" mnemonicParsing="false" onKeyPressed="#btnSvuota" onMouseClicked="#btnSvuota" prefHeight="35.0" prefWidth="120.0" text="Svuota campi" />
+    <Button id="btnSignin" fx:id="btnChiudi" layoutX="383.0" layoutY="304.0" mnemonicParsing="false" onKeyPressed="#btnChiudi" onMouseClicked="#btnChiudi" prefHeight="35.0" prefWidth="120.0" text="Chiudi" />
+    <Label fx:id="lblPassLost" alignment="CENTER_RIGHT" layoutX="356.0" layoutY="250.0" onMouseClicked="#lblPassLost" prefHeight="17.0" prefWidth="148.0" text="Password dimenticata?" />
+    <Label fx:id="lblMessage" layoutX="125.0" layoutY="368.0" prefHeight="34.0" prefWidth="350.0" text="" visible="false">
+      <font>
+        <Font size="18.0" />
+      </font>
+    </Label>
+  </children>
+</AnchorPane>

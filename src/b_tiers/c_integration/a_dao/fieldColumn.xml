@@ -1,0 +1,525 @@
+
+<objects field="id" column="id" path="c_dto.b_real.">
+
+	<!-- il campo "prty" indica la priorità dell'elemento a cui è associato
+		 più basso è il numero, più è alta la priorità
+		 più è alto il numero, più è bassa la priorità
+		 Indica una sorta di "livello di accesso"-->
+
+
+         <entity class="categoria" table="categoria" preload="nome">
+                 <field prty="" name="nome" column="nome"/>
+        </entity>
+         <entity class="tipodocumento" table="tipodocumento" preload="tipo, stato, lingua, categoria">
+                 <field prty="" name="tipo" column="tipo"/>
+                 <field prty="" name="stato" column="stato"/>
+                 <field prty="" name="magazzino" column="idmagazzino"/>
+                 <field prty="" name="tipoazienda" column="iddestinatario"/>
+
+                 <field prty="" name="movimentazione" column="idmovimentazione"/>
+                 <field prty="" name="categoria" column="idcategoria"/>
+
+                 <field prty="" name="lingua" column="idlingua"/>
+
+                 <field prty="" name="showCondizioni" column="showCondizioni"/>
+                 <field prty="" name="showSpedizione" column="showSpedizione"/>
+                 <field prty="" name="showCollabs" column="showCollabs"/>
+                 <field prty="" name="showAutoID" column="showAutoID"/>
+                 <field prty="" name="showRiferimentoFittizio" column="showRiferimentoFittizio"/>
+                 <field prty="" name="showCausale" column="showCausale"/>
+                 <field prty="" name="showFatturazione" column="showFatturazione"/>
+                 <field prty="" name="showSoloProdotti" column="showSoloProdotti"/>
+
+
+        </entity>
+         <entity class="documento" table="documento" preload="numero, riferimento, data, tipo, stato">
+                 <field prty="" name="numero" column="numero"/>
+                 <field prty="" name="data" column="data"/>
+                 <field prty="" name="tipo" column="idtipo"/>
+                 <field prty="" name="stato" column="stato"/>
+                 <field prty="" name="riferimento" column="idcontatto"/>
+         </entity>
+
+
+
+         <entity class="magazzino" table="magazzino" preload="nome, stato">
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="stato" column="stato"/>
+         </entity>
+         <entity class="causaletrasporto" table="causaletrasporto" preload="nome, stato">
+                 <field prty="" name="nome" column="nome"/>
+                  <field prty="" name="stato" column="stato"/>
+        </entity>
+         <entity class="iva" table="iva" preload="nome, percentuale, stato">
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="percentuale" column="percentuale"/>
+                 <field prty="" name="stato" column="stato"/>
+         </entity>
+
+         
+         
+         <entity class="lingua" table="lingua" preload="nome">
+                 <field prty="" name="nome" column="lingua"/>
+         </entity>
+         <entity class="um" table="um" preload="nome, stato">
+                 <field prty="" name="nome" column="um"/>
+                 <field prty="" name="stato" column="stato"/>
+         </entity>
+         <entity class="nazione" table="nazione" preload="nome, stato">
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="stato" column="stato"/>
+         </entity>
+         <entity class="regione" table="regione" preload="nome, stato">
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="stato" column="stato"/>
+                 <field prty="" name="nazione" column="idnazione"/>
+         </entity>
+         <entity class="provincia" table="provincia" preload="nome, stato">
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="stato" column="stato"/>
+                 <field prty="" name="sigla" column="sigla"/>
+                 <field prty="" name="regione" column="idregione"/>
+         </entity>
+ 
+
+
+
+         <entity class="percentualecollaboratore" table="percentualec" preload="nome, stato">
+                 <field prty="" name="nome" column="percentuale"/>
+                  <field prty="" name="stato" column="stato"/>
+        </entity>
+         <entity class="percentualefornitore" table="percentualef" preload="nome, stato">
+                 <field prty="" name="nome" column="percentuale"/>
+                  <field prty="" name="stato" column="stato"/>
+        </entity>
+         <entity class="validita" table="validita" preload="nome, stato">
+                 <field prty="" name="nome" column="nome"/>
+                  <field prty="" name="stato" column="stato"/>
+        </entity>
+         <entity class="consorzio" table="consorzio" preload="nome, stato">
+                 <field prty="" name="nome" column="nome"/>
+                  <field prty="" name="stato" column="stato"/>
+        </entity>
+         <entity class="condizionecommerciale" table="condizioni" preload="">
+                 <target column="idazienda"/>
+                 <field prty="" name="pagamento" column="idpagamento"/>
+                 <field prty="" name="trasporto" column="idtrasporto"/>
+                 <field prty="" name="minimo" column="idminimo"/>
+                 <field prty="" name="fornitore" column="idfornitore"/>
+                 <field prty="" name="stato" column="stato"/>
+        </entity>
+         <entity class="schedanetto" table="scheda" preload="">
+                 <target column="idazienda"/>
+                 <field prty="" name="prezzo" column="prezzo"/>
+                 <field prty="" name="data" column="data"/>
+                 <field prty="" name="prodotto" column="idprodotto"/>
+        </entity>
+         <entity class="prodotto" table="prodotto" preload="nome, codice, stato">
+                 <target table="descrprodotto" column="idprodotto"/>
+                 <!--<target column="idazienda"/>-->
+                 <field prty="" name="codice" column="codice"/>
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="um" column="idum"/>
+                 <field prty="" name="prezzo" column="prezzo"/>
+                 <field prty="" name="gruppo" column="idgruppo"/>
+
+                 <field prty="" name="fornitore" column="idfornitore"/>
+                 <field prty="" name="stato" column="stato"/>
+                 <field prty="" name="descrizioni"/>
+        </entity>
+        <entity class="descrizione" table="descrizione" preload="">
+                <target column="idprodotto"/>
+                <field prty="" name="descrizione" column="descrizione"/>
+                <field prty="" name="lingua" column="idlingua"/>
+        </entity>
+
+        <entity class="gruppoprodotto" table="gruppo" preload="nome, stato">
+                 <field prty="" name="nome" column="gruppo"/>
+                 <field prty="" name="stato" column="stato"/>
+        </entity>
+        <entity class="sottogruppoprodotto" table="sottogruppo" preload="nome, gruppo, stato">
+                 <field prty="" name="nome" column="sottogruppo"/>
+                 <field prty="" name="gruppo" column="idgruppo"/>
+                 <field prty="" name="stato" column="stato"/>
+        </entity>
+
+
+
+
+
+
+         <entity class="indirizzo" table="indcivico" preload="civico, strada">
+                 <target table="indazienda" column="idindirizzo"/>
+                 <target table="elencoindirizzi" column="idindirizzo"/>
+                 <field prty="" name="civico" column="idcivico"/>
+                 <field prty="" name="strada" column="idindirizzo2"/>
+         </entity>
+         <entity class="civico" table="civico" preload="numero">
+                 <field prty="" name="numero" column="civico"/>
+         </entity>
+         <entity class="strada" table="indirizzo" preload="nome, cap">
+                 <field prty="" name="nome" column="indirizzo"/>
+                 <field prty="" name="cap" column="idcap"/>
+         </entity>
+         <entity class="capcitta" table="capcitta" preload="cap, citta">
+                 <field prty="" name="cap" column="idcap"/>
+                 <field prty="" name="citta" column="idcitta"/>
+         </entity>
+         <entity class="centralinoazienda" table="centralino" preload="numero">
+                 <target column="idazienda"/>
+                 <field prty="" name="numero" column="numero"/>
+         </entity>
+         <entity class="faxazienda" table="faxazienda" preload="numero">
+                 <target column="idazienda"/>
+                 <field prty="" name="numero" column="numero"/>
+         </entity>
+         <entity class="noteazienda" table="noteazienda" preload="note, data">
+                 <target column="idazienda"/>
+                 <field prty="" name="note" column="note"/>
+                 <field prty="" name="data" column="data"/>
+         </entity>
+         <entity class="emailazienda" table="emailazienda" preload="email">
+                 <target column="idazienda"/>
+                 <field prty="" name="email" column="email"/>
+         </entity>
+         <entity class="sito" table="sitoazienda" preload="nome">
+                 <target column="idazienda"/>
+                 <field prty="" name="nome" column="sito"/>
+         </entity>
+         <entity class="notecontatto" table="elenconote" preload="note, data">
+                 <target column="idcontatto"/>
+                 <field prty="" name="note" column="note"/>
+                 <field prty="" name="data" column="data"/>
+         </entity>
+         <entity class="cellularecontatto" table="elencocellulare" preload="numero">
+                 <target column="idcontatto"/>
+                 <field prty="" name="numero" column="cellulare"/>
+         </entity>
+         <entity class="emailcontatto" table="elencoemail" preload="email">
+                 <target column="idcontatto"/>
+                 <field prty="" name="email" column="email"/>
+         </entity>
+         <entity class="faxcontatto" table="elencofax" preload="numero">
+                 <target column="idcontatto"/>
+                 <field prty="" name="numero" column="fax"/>
+         </entity>
+         <entity class="centralinocontatto" table="elencoufficio" preload="numero">
+                 <target column="idcontatto"/>
+                 <field prty="" name="numero" column="ufficio"/>
+         </entity>
+         <entity class="riferimento" table="contatto" preload="nome, cognome">
+                 <target column="idazienda"/>
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="cognome" column="cognome"/>
+                 <field prty="" name="titolo" column="idtitolo"/>
+                 <field prty="" name="ruolo" column="idruolo"/>
+                 <field prty="" name="stato" column="stato"/>
+                 <field prty="" name="note"/>
+                 <field prty="" name="cellulare"/>
+                 <field prty="" name="email"/>
+                 <field prty="" name="fax"/>
+                 <field prty="" name="ufficio"/>
+                 <target table="elencoindirizzi" column="idcontatto"/>
+                 <field prty="" name="indirizzi"/>
+        </entity>
+
+
+         <entity class="titolo" table="titolo" preload="titolo">
+                 <field prty="" name="titolo" column="titolo"/>
+         </entity>
+         <entity class="ruolo" table="ruolo" preload="ruolo">
+                 <field prty="" name="ruolo" column="ruolo"/>
+         </entity>
+
+
+         <entity class="grupposocietario" table="gruppoaziende" preload="nome, stato">
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="stato" column="stato"/>
+         </entity>
+
+
+         <entity class="cap" table="cap" preload="cap">
+                 <field prty="" name="cap" column="nome"/>
+         </entity>
+         <entity class="citta" table="citta" preload="nome, stato">
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="stato" column="stato"/>
+                 <field prty="" name="provincia" column="idprovincia"/>
+         </entity>
+         <entity class="formagiuridica" table="forma" preload="nome, stato">
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="stato" column="stato"/>
+         </entity>
+         <entity class="minimo" table="minimo" preload="nome, stato">
+                 <field prty="" name="nome" column="minimo"/>
+                 <field prty="" name="stato" column="stato"/>
+         </entity>
+         <entity class="trasporto" table="trasporto" preload="nome, stato">
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="stato" column="stato"/>
+         </entity>
+         <entity class="pagamento" table="pagamento" preload="nome, stato">
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="stato" column="stato"/>
+         </entity>
+         <entity class="settore" table="settore" preload="nome, stato">
+                 <target table="aziendasettori" column="idsettore"/>
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="stato" column="stato"/>
+         </entity>
+         <entity class="altro" table="azienda" preload="nome, secondonome, stato">
+                 <target table="indazienda" column="idazienda"/>
+                 <discriminator value="3" column="idtipo"/>
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="secondonome" column="secondonome"/>
+                 <field prty="" name="piva" column="piva"/>
+                 <field prty="" name="codfisc" column="codfisc"/>
+                 <field prty="" name="forma" column="idforma"/>
+                 <field prty="" name="stato" column="stato"/>
+                 <field prty="" name="indirizzi"/>
+                 <field prty="" name="centralino"/>
+                 <field prty="" name="fax"/>
+                 <field prty="" name="email"/>
+                 <field prty="" name="siti"/>
+                 <field prty="" name="riferimenti"/>
+                 <field prty="" name="note"/>
+<!--
+sito : String
+siti : List<Sito>
+
+note : List<NoteAzienda>
+noteCancellate : List<NoteAzienda>
+noteModificate : List<NoteAzienda>
+noteNuove : List<NoteAzienda>
+centralino : List<CentralinoAzienda>
+email : List<EmailAzienda>
+indirizzi : List<Indirizzo>
+indirizziRimossi : List<Indirizzo>
+indirizziAggiunti : List<Indirizzo>
+fax : List<FaxAzienda>
+riferimenti : List<Riferimento>
+rimossi : List<Riferimento>
+modificati : List<Riferimento>
+nuovi : List<Riferimento>
+-->
+         </entity>
+         <entity class="segnalatore" table="azienda" preload="nome, secondonome, stato">
+                 <target table="indazienda" column="idazienda"/>
+                 <discriminator value="5" column="idtipo"/>
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="secondonome" column="secondonome"/>
+                 <field prty="" name="piva" column="piva"/>
+                 <field prty="" name="codfisc" column="codfisc"/>
+                 <field prty="" name="forma" column="idforma"/>
+                 <field prty="" name="stato" column="stato"/>
+                 <field prty="" name="indirizzi"/>
+                 <field prty="" name="centralino"/>
+                 <field prty="" name="fax"/>
+                 <field prty="" name="email"/>
+                 <field prty="" name="siti"/>
+                 <field prty="" name="riferimenti"/>
+                 <field prty="" name="note"/>
+<!--
+sito : String
+siti : List<Sito>
+
+note : List<NoteAzienda>
+noteCancellate : List<NoteAzienda>
+noteModificate : List<NoteAzienda>
+noteNuove : List<NoteAzienda>
+centralino : List<CentralinoAzienda>
+email : List<EmailAzienda>
+indirizzi : List<Indirizzo>
+indirizziRimossi : List<Indirizzo>
+indirizziAggiunti : List<Indirizzo>
+fax : List<FaxAzienda>
+riferimenti : List<Riferimento>
+rimossi : List<Riferimento>
+modificati : List<Riferimento>
+nuovi : List<Riferimento>
+-->
+         </entity>
+         <entity class="subagente" table="azienda" preload="nome, secondonome, stato">
+                 <target table="indazienda" column="idazienda"/>
+                 <discriminator value="4" column="idtipo"/>
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="secondonome" column="secondonome"/>
+                 <field prty="" name="piva" column="piva"/>
+                 <field prty="" name="codfisc" column="codfisc"/>
+                 <field prty="" name="forma" column="idforma"/>
+                 <field prty="" name="stato" column="stato"/>
+                 <field prty="" name="indirizzi"/>
+                 <field prty="" name="centralino"/>
+                 <field prty="" name="fax"/>
+                 <field prty="" name="email"/>
+                 <field prty="" name="siti"/>
+                 <field prty="" name="riferimenti"/>
+                 <field prty="" name="note"/>
+<!--
+sito : String
+siti : List<Sito>
+
+note : List<NoteAzienda>
+noteCancellate : List<NoteAzienda>
+noteModificate : List<NoteAzienda>
+noteNuove : List<NoteAzienda>
+centralino : List<CentralinoAzienda>
+email : List<EmailAzienda>
+indirizzi : List<Indirizzo>
+indirizziRimossi : List<Indirizzo>
+indirizziAggiunti : List<Indirizzo>
+fax : List<FaxAzienda>
+riferimenti : List<Riferimento>
+rimossi : List<Riferimento>
+modificati : List<Riferimento>
+nuovi : List<Riferimento>
+-->
+         </entity>
+         <entity class="fornitore" table="azienda" preload="nome, secondonome, stato">
+                 <target table="indazienda" column="idazienda"/>
+                 <discriminator value="2" column="idtipo"/>
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="secondonome" column="secondonome"/>
+                 <field prty="" name="piva" column="piva"/>
+                 <field prty="" name="codfisc" column="codfisc"/>
+                 <field prty="" name="forma" column="idforma"/>
+                 <field prty="" name="stato" column="stato"/>
+                 <field prty="" name="indirizzi"/>
+                 <field prty="" name="centralino"/>
+                 <field prty="" name="fax"/>
+                 <field prty="" name="email"/>
+                 <field prty="" name="siti"/>
+                 <field prty="" name="riferimenti"/>
+                 <field prty="" name="note"/>
+<!--
+sito : String
+siti : List<Sito>
+
+note : List<NoteAzienda>
+noteCancellate : List<NoteAzienda>
+noteModificate : List<NoteAzienda>
+noteNuove : List<NoteAzienda>
+centralino : List<CentralinoAzienda>
+email : List<EmailAzienda>
+indirizzi : List<Indirizzo>
+indirizziRimossi : List<Indirizzo>
+indirizziAggiunti : List<Indirizzo>
+fax : List<FaxAzienda>
+riferimenti : List<Riferimento>
+rimossi : List<Riferimento>
+modificati : List<Riferimento>
+nuovi : List<Riferimento>
+-->
+         </entity>
+         <entity class="cliente" table="azienda" preload="nome, secondonome, stato, forma">
+                 <target table="indazienda" column="idazienda"/>
+                 <target table="aziendasettori" column="idazienda"/>
+                 <discriminator value="1" column="idtipo"/>
+                 <field prty="" name="nome" column="nome"/>
+                 <field prty="" name="secondonome" column="secondonome"/>
+                 <field prty="" name="piva" column="piva"/>
+                 <field prty="" name="codfisc" column="codfisc"/>
+                 <field prty="" name="forma" column="idforma"/>
+                 <field prty="" name="gruppo" column="idgruppo"/>
+                 <field prty="" name="stato" column="stato"/>
+                 <field prty="" name="consorzio" column="idconsorzio"/>
+                 <field prty="" name="centralino"/>
+                 <field prty="" name="fax"/>
+                 <field prty="" name="email"/>
+                 <field prty="" name="siti"/>
+                 <field prty="" name="riferimenti"/>
+                 <field prty="" name="note"/>
+                 <field prty="" name="condizioni"/>
+                 <field prty="" name="scheda"/>
+                 <field prty="" name="settori"/>
+                 <field prty="" name="indirizzi"/>
+
+
+<!--
+sito : String
+siti : List<Sito>
+
+note : List<NoteAzienda>
+noteCancellate : List<NoteAzienda>
+noteModificate : List<NoteAzienda>
+noteNuove : List<NoteAzienda>
+centralino : List<CentralinoAzienda>
+email : List<EmailAzienda>
+indirizzi : List<Indirizzo>
+indirizziRimossi : List<Indirizzo>
+indirizziAggiunti : List<Indirizzo>
+fax : List<FaxAzienda>
+riferimenti : List<Riferimento>
+rimossi : List<Riferimento>
+modificati : List<Riferimento>
+nuovi : List<Riferimento>
+-->
+         </entity>
+</objects>
+
+ <!--
+<objects default="id" path="c_dto.b_real.">
+
+
+
+
+<cliente class="Cliente">nome, stato</cliente>
+<riferimento class="Riferimento">nome, cognome, azienda_Cliente</riferimento>
+
+<riferimento class="Riferimento">nome, cognome, cliente</riferimento>
+<cliente>nome
+         <table name="azienda" fields="nome, secondonome, sito" />
+         <table name="consorzio" fields="nome" />
+         <table name="forma" fields="nome" />
+         <table name="gruppoaziende" fields="nome" />
+         <table name="tipoazienda" fields="nome" />
+         <table name="consorzio" fields="nome" />
+         <table name="consorzio" fields="nome" />
+         <table name="consorzio" fields="nome" />
+         <table name="consorzio" fields="nome" />
+</cliente>
+
+<fornitore list="">nome, stato</fornitore>
+<subagente list="">nome, stato</subagente>
+<segnalatore list="">nome, stato</segnalatore>
+<altro list="">nome, stato</altro>
+<settore list="">nome</settore>
+<grupposocietario list="">nome</grupposocietario>
+<consorzio list="">nome</consorzio>
+<pagamento list="">nome, stato</pagamento>
+<trasporto list="">nome, stato</trasporto>
+<minimo list="">nome, stato</minimo>
+<cap list="">nome</cap>
+<citta list="">nome, stato</citta>
+<provincia list="">nome, stato</provincia>
+<regione list="">nome, stato</regione>
+<nazione list="">nome, stato</nazione>
+
+<prodotto>nome, fornitore_Fornitore</prodotto>
+<gruppoprodotto>nome</gruppoprodotto>
+<sottogruppoprodotto>nome</sottogruppoprodotto>
+<percentualefornitore>nome</percentualefornitore>
+<um>nome</um>
+<validita>nome</validita>
+
+
+<magazzino>nome</magazzino>
+<causaletrasporto>nome</causaletrasporto>
+<documento>numero, data, tipo, riferimento</documento>
+<documento>numero, data, tipo, riferimento, _RigaProdotto</documento>
+<documento>numero, data, tipo, riferimento, _prodotti|prezzo|quantita</documento>
+<documento>numero, data, tipo, totale, riferimento_Riferimento</documento>
+<rigaprodotto>prezzo, quantita</rigaprodotto>
+<rigaprodotto>prezzo, quantita</documento>
+
+<tipodocumento>tipo</tipodocumento>
+<iva>nome</iva>
+<percentualecollaboratore>nome</percentualecollaboratore>
+<formagiuridica>nome</formagiuridica>
+
+
+
+
+
+</objects>
+-->

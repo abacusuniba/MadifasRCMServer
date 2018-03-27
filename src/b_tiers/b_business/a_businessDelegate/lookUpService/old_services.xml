@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE services [
+   <!ELEMENT services (utente,manager,employee, administrator)>
+   <!ATTLIST services package CDATA #REQUIRED>
+   <!ELEMENT utente (service)>
+   <!ATTLIST utente class CDATA #REQUIRED>
+   <!ELEMENT manager (service)>
+   <!ATTLIST manager class CDATA #REQUIRED>
+   <!ELEMENT administrator (service)>
+   <!ATTLIST administrator class CDATA #REQUIRED>
+   <!ELEMENT employee (service)>
+   <!ATTLIST employee class CDATA #REQUIRED>
+   <!ELEMENT service (#PCDATA)>
+   <!ATTLIST service name CDATA #REQUIRED>
+   <!ATTLIST service param CDATA #REQUIRED>
+]>
+<services package="b_tiers.b_business.b_services." prefix="AS" default="Utente">
+
+   <appservice class="manager" />
+
+   <appservice class="administrator" />
+
+   <appservice class="employee" />
+
+</services>
